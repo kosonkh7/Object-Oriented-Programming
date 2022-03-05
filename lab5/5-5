@@ -1,0 +1,12 @@
+#include <iostream>
+
+int main() {
+	int a;
+	std::cin >> a;
+
+	if ((a % 2) == 1) std::cout << "입력한 정수는 odd";
+	else std::cout << "입력한 정수는 even";
+
+}
+
+//홀수 짝수 판별기
