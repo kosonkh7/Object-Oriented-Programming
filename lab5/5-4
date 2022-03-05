@@ -1,0 +1,20 @@
+#include <iostream>
+
+int main() {
+	int quiz, midterm, final;
+	double average;
+	std::cout << "퀴즈, 중간, 최종 시험 점수를 차례대로 입력하시오.";
+	std::cin >> quiz >> midterm >> final;
+
+	average = (quiz + midterm + final) / 3;
+	if (average >= 90) {
+		std::cout << "A";
+	}
+	else {
+		if (average >= 70) { std::cout << "B"; }
+		else {
+			if (average >= 50) std::cout << "C";
+			else std::cout << "F";
+		}
+	}
+}
