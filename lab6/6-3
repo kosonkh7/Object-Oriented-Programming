@@ -1,0 +1,78 @@
+#include <iostream>
+#include <cmath>
+/*
+* help_screen
+* Displays information about how the program works
+* Accepts no parameters
+* Returns nothing
+*/
+void help_screen() {
+	std::cout << "Add: Adds two numbers\n";
+	std::cout << " Example: a 2.5 8.0\n";
+	std::cout << "Subtract: Subtracts two numbers\n";
+	std::cout << " Example: s 10.5 8.0\n";
+	std::cout << "Print: Displays the result of the latest operation\n";
+	std::cout << " Example: p\n";
+	std::cout << "Help: Displays this help screen\n";
+	std::cout << " Example: h\n";
+	std::cout << "Quit: Exits the program\n";
+	std::cout << " Example: q\n";
+}
+/*
+* menu
+* Display a menu
+* Accepts no parameters
+* Returns the character entered by the user.
+*/
+char menu() {
+	// Display a menu
+	std::cout << "=== A)dd S)ubtract P)rint H)elp Q)uit ===\n";
+	// Return the char entered by user
+	char ch;
+	std::cin >> ch;
+	return ch;
+}
+/*
+* main
+* Runs a command loop that allows users to
+* perform simple arithmetic.
+*/
+int main() {
+	double result = 0.0, arg1, arg2;
+	bool done = false; // Initially not done
+	do {
+		switch (menu()) {
+		case 'A': // Addition
+		case 'a':
+			std::cin >> arg1 >> arg2;
+			result = arg1 + arg2;
+			std::cout << result << '\n';
+			break;
+		case 'S': // Subtraction
+		case 's':
+			std::cin >> arg1 >> arg2;
+			result = arg1 - arg2;
+			// Fall through, so it prints the result
+		case 'P': // Print result
+		case 'p':
+			std::cout << result << '\n';
+			break;
+		case 'H': // Display help screen
+		case 'h':
+			help_screen();
+			break;
+		case 'Q': // Quit the program
+		case 'q':
+			done = true;
+			break;
+		}
+	} while (!done);
+}
+
+/*
+menu 함수를 통해 switch문에 사용될 문자를 입력 받을 수 있는데
+그 문자가 A또는 a이면 두 수를 덧셈하여 출력하고
+S,s이면 뺄셈 후 출력, P또는p는 당시 result에 저장된 값 출력
+H또는 h면 help_screen 함수가 실행되어 코드에 대한 설명이 출력되고
+Q또는 q를 입력하면 반복문이 종료된다.
+*/
