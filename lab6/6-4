@@ -1,0 +1,54 @@
+A-4. Listing 9.12
+#include <iostream>
+/*
+* get_int_range(first, last)
+* Forces the user to enter an integer within a
+* specified range
+* first is either a minimum or maximum acceptable value
+* last is the corresponding other end of the range,
+* either a maximum or minimum * value
+* Returns an acceptable value from the user
+*/
+int get_int_range(int first, int last) {
+	// If the larger number is provided first,
+	// switch the parameters
+	if (first > last) {
+		int temp = first;
+		first = last;
+		last = temp;
+	}
+	// Insist on values in the range first...last
+	std::cout << "Please enter a value in the range "
+		<< first << "..." << last << ": ";
+	int in_value; // User input value
+	bool bad_entry;
+	do {
+		std::cin >> in_value;
+		bad_entry = (in_value < first || in_value > last);
+		if (bad_entry) {
+			std::cout << in_value << " is not in the range "
+				<< first << "..." << last << '\n';
+			std::cout << "Please try again: ";
+		}
+	} while (bad_entry);
+	// in_value at this point is guaranteed to be within range
+	return in_value;
+}
+/*
+* main
+* Tests the get_int_range function
+*/
+int main() {
+	std::cout << get_int_range(10, 20) << '\n';
+	std::cout << get_int_range(20, 10) << '\n';
+	std::cout << get_int_range(5, 5) << '\n';
+	std::cout << get_int_range(-100, 100) << '\n';
+}
+
+/*
+main 함수에서 get_int_range 함수를 이용한다
+get_int_range는 두 개의 정수 파라미터를 main함수로부터 전달받는데
+우선 조건문을 통해 크기 순으로 정렬하고
+In_value 변수에 사용자로부터 정수를 입력 받는데
+이 정수가 앞서 전달 받은 두 개의 정수 파라미터 사이 범위에 있는 수로 입력할 때까지 do-while 반복문을 통해 계속 실행되고, 조건을 만족하면 while문이 종료되면서 in_value에 저장되어 있는 값을 반환한다.
+*/
