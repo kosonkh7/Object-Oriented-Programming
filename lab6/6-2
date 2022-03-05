@@ -1,0 +1,59 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+int main() {
+	// Set the random seed value
+	srand(static_cast<unsigned>(time(0)));
+	// Roll the die three times
+	for (int i = 0; i < 3; i++) {
+		// Generate random number in the range 1...6
+		int value = rand() % 6 + 1;
+		// Show the die
+		std::cout << "+-------+\n";
+		switch (value) {
+		case 1:
+			std::cout << "| |\n";
+			std::cout << "| * |\n";
+			std::cout << "| |\n";
+			break;
+		case 2:
+			std::cout << "| * |\n";
+			std::cout << "| |\n";
+			std::cout << "| * |\n";
+			break;
+		case 3:
+			std::cout << "| * |\n";
+			std::cout << "| * |\n";
+			std::cout << "| * |\n";
+			break;
+		case 4:
+			std::cout << "| * * |\n";
+			std::cout << "| |\n";
+			std::cout << "| * * |\n";
+			break;
+		case 5:
+			std::cout << "| * * |\n";
+			std::cout << "| * |\n";
+			std::cout << "| * * |\n";
+			break;
+		case 6:
+			std::cout << "| * * * |\n";
+			std::cout << "| |\n";
+			std::cout << "| * * * |\n";
+			break;
+		default:
+			std::cout << " *** Error: illegal die value ***\n";
+			break;
+		}
+		std::cout << "+-------+\n";
+	}
+}
+
+/*
+time(0)을 통하여 시간을 가져오고 unsigned로 형변환하여 srand로 랜덤한 시드값을 갖게 된다
+이로써 rand()를 이용하면 매번 랜덤한 숫자를 가져오게 되고
+For문 아래에 int value = rand() % 6 + 1; 를 통해 1~6 사이의 랜덤 정수를 갖게 된다
+Switch 문에 지정된 값에 따라 value값과 일치하는 뭉개진? 주사위 그림이 출력되고
+이 과정이 for문 도는 동안 3번 반복하여 출력된다.
+값이 유사 랜덤으로 생성되므로 실제 출력값은 실행마다 다르다.
+*/
