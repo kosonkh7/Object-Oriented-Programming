@@ -1,0 +1,9 @@
+#include <iostream>
+int main() {
+	int x;
+	std::cin >> x;
+	if (x >= 1 && x <= 100)
+		std::cout << "OK";
+}
+
+//&& 로 조건문 범위를 설정해주어 만족하면 OK를 출력하게 해주었다.
