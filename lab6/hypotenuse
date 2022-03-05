@@ -1,0 +1,15 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+	double side1, side2;
+	cout << "두 변의 길이 입력 : ";
+	cin >> side1 >> side2;
+	cout << "빗변의 길이는 " << sqrt(pow(side1, 2) + pow(side2, 2));
+
+
+}
+
+
+//직각삼각형에서 직각 옆에 두 변의 길이를 실수형으로 입력 받고, 빗변의 길이를 구하기 위해 피타고라스의 정리 공식을 cmath 라이브러리 내의 sqrt와 pow를 활용하여 나타내어 실수로 출력하게끔 코드를 작성하였다.
